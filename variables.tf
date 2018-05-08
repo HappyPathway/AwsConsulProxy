@@ -14,6 +14,10 @@ variable "service_name" {
     default = "app-proxy"
 }
 
+variable "app_name" {
+    default = "app"
+}
+
 variable "region" {
     default = "us-east-1"
 }
