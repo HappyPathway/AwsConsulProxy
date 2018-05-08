@@ -8,4 +8,4 @@ variable "consul_dc" {
 
 variable "service_name" {}
 variable "env" {}
-variable "version" {}
+variable "service_version" {}
