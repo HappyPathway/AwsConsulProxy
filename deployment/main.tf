@@ -1,3 +1,9 @@
+# Configure the Consul provider
+provider "consul" {
+  address    = "${var.consul_address}"
+  datacenter = "${var.consul_dc}"
+}
+
 resource "consul_keys" "app" {
   datacenter = "${var.consul_dc}"
   # token      = "abcd"
