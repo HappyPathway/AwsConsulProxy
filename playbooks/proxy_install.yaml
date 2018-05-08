@@ -73,6 +73,9 @@
         - {"src": "consul_template.conf", "dest": "/etc/supervisor/conf.d/consul_template.conf"}
         - {"src": "proxy_template.hcl", "dest": "{{ consul_template_config_dir }}/proxy_template.hcl"}
 
+    - name: restart supervisord
+      service: name=supervisor state=restarted
+      
     - name: load consul with supervisord
       shell: "{{ item }}"
       with_items:
