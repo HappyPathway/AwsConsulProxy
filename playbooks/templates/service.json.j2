@@ -1,6 +1,6 @@
 {
   "service": {
-    "name": "{{ service_name }}.{{ env }}",
+    "name": "{{ service_name }}",
     "tags": ["{{ service_name }}", "{{ env }}"],
     "address": "{{ ansible_default_ipv4.address }}",
     "port": {{ service_port }},
