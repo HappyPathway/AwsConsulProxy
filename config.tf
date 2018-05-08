@@ -29,7 +29,7 @@ resource "null_resource" "service_config" {
   provisioner "remote-exec" {
     inline = [
       "echo ${var.env} > /tmp/app.env",
-      "echo ${var.service_name} > /tmp/app.service"
+      "echo ${var.service_name} > /tmp/app.service",
       "bash /tmp/playbooks/proxy_bootstrap.sh"
     ]
   }
