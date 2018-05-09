@@ -84,3 +84,11 @@ variable "set_dns" {
 variable "enable_ssl" {
   default = true
 }
+
+variable "consul_address" {
+    default = "consul.ops.happypathway.com:8500"
+}
+
+variable "consul_dc" {
+    default = "dc1"
+}
