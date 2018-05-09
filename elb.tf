@@ -7,10 +7,10 @@
 #}
 resource "aws_elb" "service" {
   count           = "${var.enable_ssl ? 0 : 1}"
-  name            = "${var.company_name}-${var.org_name}-${var.service_name}"
+  name            = "${var.service_name}-${var.service_version}"
   subnets         = ["${var.private_subnet_id}"]
   security_groups = ["${aws_security_group.service.id}"]
-  internal        = "${var.internal}"
+  internal        = "${var.internal_service}"
   instances       = ["${module.aws.instance_ids}"]
 
   listener {
@@ -39,7 +39,7 @@ resource "aws_elb" "service" {
 
 resource "aws_lb_cookie_stickiness_policy" "cookie_stickness" {
   count                    = "${var.enable_ssl ? 0 : 1}"
-  name                     = "${var.company_name}-${var.org_name}-${var.service_name}-cookiestickness"
+  name                     = "${var.service_name}-${var.service_version}-cookiestickness"
   load_balancer            = "${aws_elb.service.id}"
   lb_port                  = "${var.service_port}"
   cookie_expiration_period = 600
