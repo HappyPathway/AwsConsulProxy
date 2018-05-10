@@ -10,7 +10,7 @@ resource "consul_keys" "app" {
 
   # Set the CNAME of our load balancer as a key
   key {
-    path  = "services/${var.env}/${var.service_name}/version"
+    path  = "environments/${var.env}/${var.service_name}/version"
     value = "${var.service_version}"
   }
 }
