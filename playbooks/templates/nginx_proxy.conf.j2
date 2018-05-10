@@ -1,7 +1,7 @@
 upstream backend {
-  <% with key "services/{{ env }}/{{ service_name }}/version" %>
+  <% with key "environments/{{ env }}/{{ service_name }}/version" %>
   <% range service ( printf "%s.{{ app_name }}" . ) %>
-  server <% .Address %>:<% key "services/{{ env }}/{{ service_name }}/port" %>;
+  server <% .Address %>:<% key "services/{{ service_name }}/port" %>;
   <% end %>
   <% end %>
 }
